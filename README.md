@@ -1,4 +1,4 @@
-# appvessel
+# miniVDesk
 
 Android 应用容器（虚拟化）引擎。让未安装的第三方应用运行在宿主提供的隔离环境里：
 per-app 沙盒、binder 虚拟化、seccomp 路径重定向与 /proc 视图伪装。
