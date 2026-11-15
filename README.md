@@ -1,54 +1,37 @@
 # miniVDesk
 
-Android 应用容器（虚拟化）引擎。让未安装的第三方应用运行在宿主提供的隔离环境里：
-per-app 沙盒、binder 虚拟化、seccomp 路径重定向与 /proc 视图伪装。
+[English](README.en.md) | 简体中文
 
-> 本仓库只包含 **Java 层 + 预编译 native SDK**，不包含 native 源码。
+miniVDesk 是新一代 Android 应用容器虚拟化引擎。架构上摒弃了传统沙盒中易被检测的 Java proxy、Binder hook、ioctl hook 方案，采用全新自研的系统服务拦截方案，基本实现应用无感知；在不额外增加反检测补丁的情况下，即可有效通过主流检测 App/SDK 针对系统服务 hook 的环境检测热点。路径重定向采用隐蔽性最强的 seccomp-BPF 方案，最大限度规避主流检测手段针对 PLT hook、Inline hook 的检测。
 
-## 目录
+## 优势
 
-```
-src/                     Java 层（UI + 引擎宿主类 VApp + stub Activity/Service/Receiver）
-res/                     资源
-sdk/arm64-v8a/libnative.so   预编译 native 引擎（release 加固版）
-tools/add_to_apk.py      往 zip 里加条目的打包脚本
-Makefile                 aapt2 → javac → d8 → 打包 → 签名
-```
+### 1. 轻量
 
-## 构建
+引擎 SDK 在 Native 层高度自洽，Java 层只保留一组 Stub 槽位和一个 Application 薄层。引入 SDK 后无需主动调用任何 SDK 函数，即可搭建自己的虚拟桌面应用；本项目示例最终编译的 APK 仅 1.2 MB。
 
-依赖：
+### 2. 高性能
 
-- Android SDK：`build-tools;34.0.0`、`platforms;android-34`
-- JDK（`javac --release 8`）、`python3`、`keytool`/`apksigner`
-- 默认路径 `$HOME/android-sdk`，不同则改 `Makefile` 顶部 `SDK`
+引擎通过拦截接管系统服务实现环境虚拟化，无需创建子系统；自身对内存和 CPU 的占用很小，应用启动速度与原生基本一致。
 
-```sh
-make                 # 产出 vdesk-signed.apk
-make install         # adb install -r
-make run             # 安装并启动主界面
-make clean
-```
+### 3. 便利
 
-构建**不编译 native**：打包时把 `sdk/arm64-v8a/libnative.so` 放进 APK 的
-`lib/arm64-v8a/`。需要重编引擎时，在上游 vdesk 仓库构建后覆盖该文件。
+得益于沙盒特性，App 的 Activity 不受 `export` 属性限制，通过简单的函数调用即可自由切换。同时，引擎致力于为手机端 AI Agent 提供技术底座，将逐步增加并完善自动化接口，为 RPA 场景提供便利。
 
-## 使用
+### 4. 隐蔽
 
-首次需先在 UI 里「添加应用」导入目标 APK（落到 `files/target_apk/<pkg>/`）。
-之后可以直接点击图标，或在已导入的情况下无头拉起：
+引擎架构天然具备隐蔽优势。在此基础上，通过对 maps、status、soinfo、system property 等文件及内存数据的修改，进一步增强了反检测特性；目前已能通过 Momo 等环境检测软件的检测，并可稳定运行主流社媒 App。
 
-```sh
-adb shell am start -n com.vdesk/com.minimal.stub.StubActivity \
-  --es TARGET_PACKAGE    <pkg> \
-  --es TARGET_APK        /data/user/0/com.vdesk/files/target_apk/<pkg>/base.apk \
-  --es TARGET_APP_CLASS  <applicationClass> \
-  --es TARGET_NATIVE_DIR /data/user/0/com.vdesk/files/target_apk/<pkg>/lib
-```
+## 应用场景
+
+1. **数据隔离**：实例预设 10 个虚拟设备并支持自行添加；不同虚拟设备的 App 数据相互隔离，可实现登录态的独立备份与切换。
+2. **App 测试**：通过修改设备指纹模拟不同型号设备，便捷地完成 App 在不同环境下的测试。
+3. **RPA**：摆脱移动端 RPA 对 adb 指令的依赖，并基于内嵌指令大幅简化 RPA 脚本编辑；必要时可提供 AI Agent 定制开发。
+4. **远程控制**：通过中转服务器转发控制指令或自动化脚本，远程操作沙盒内的 App。
+5. **逆向分析**：对无 root 权限的手机，可通过引擎接入 frida-gadget.so，对应用进行 hook 分析或脚本注入。
 
 ## 说明
 
-- 仅提供 `arm64-v8a`；应用包名为 `com.vdesk`。
-- `libnative.so` 为 release 加固产物：只导出 `JNI_OnLoad` 与
-  `Java_com_minimal_virtual_VApp_nativeExc`，无符号表/DWARF。
-- 仅供学习与研究，请在合法授权范围内使用。
+- 本引擎 SDK 免费版本可自由使用；目前仅支持 Android 10，且仅保留多开功能。
+- 如需在更高版本系统中使用，或需要 Frida 调试、设备指纹编辑等附加功能，请联系微信：`sanxiao922`。
+- 项目动态请关注微信公众号：三言说两语。
