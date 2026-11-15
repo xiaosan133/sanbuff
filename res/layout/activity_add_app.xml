@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 添加应用：模式分段控件（手机已装 / 数据区 APK）+ 可勾选列表 + 底部主按钮。
+     分段控件的"选中"沿用 AddAppActivity 的 setEnabled 约定：disabled 的那一段是当前模式，
+     样式在 bg_segment / segment_text 里按 state_enabled 反着写。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/vdesk_bg">
+
+    <TextView
+        style="@style/VDesk.PageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/sp_4"
+        android:paddingRight="@dimen/sp_4"
+        android:text="添加应用" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sp_3"
+        android:layout_marginRight="@dimen/sp_3"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:background="@drawable/bg_seg_container">
+
+        <Button
+            android:id="@+id/btnModePhone"
+            style="@style/VDesk.Segment"
+            android:layout_weight="1"
+            android:text="手机已安装" />
+
+        <Button
+            android:id="@+id/btnModeData"
+            style="@style/VDesk.Segment"
+            android:layout_weight="1"
+            android:text="数据区 APK" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/sp_3"
+        android:divider="@color/vdesk_divider"
+        android:dividerHeight="@dimen/stroke_hairline"
+        android:scrollbars="none"
+        android:listSelector="@color/vdesk_transparent" />
+
+    <Button
+        android:id="@+id/btnImport"
+        style="@style/VDesk.ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/sp_3"
+        android:enabled="false"
+        android:text="导入所选 (0)" />
+</LinearLayout>

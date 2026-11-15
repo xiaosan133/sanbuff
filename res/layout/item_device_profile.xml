@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 一台虚拟设备：名称 + 生效标记（胶囊 chip）+ 数据区 + 提示 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/sp_4"
+    android:paddingRight="@dimen/sp_4"
+    android:paddingTop="@dimen/sp_3"
+    android:paddingBottom="@dimen/sp_3"
+    android:background="@drawable/bg_row">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/VDesk.ItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/activeMark"
+            style="@style/VDesk.Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="24dp"
+            android:text="生效中"
+            android:textColor="@color/vdesk_ok"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/summary"
+        style="@style/VDesk.ItemSub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_1" />
+
+    <TextView
+        android:id="@+id/applied"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/vdesk_text_faint"
+        android:textSize="12sp" />
+</LinearLayout>

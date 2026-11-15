@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 列表行（Square 波纹 + 透明底）：列表本身给分割线，行底不要再铺色。
+     原来所有条目都没有按压反馈 ⇒ 点了像没反应。 -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/vdesk_ripple">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFFFF" />
+        </shape>
+    </item>
+</ripple>

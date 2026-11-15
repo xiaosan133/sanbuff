@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分段控件的一段。AddAppActivity 用 setEnabled 表示"选中"（enabled=false 的那个是当前模式），
+     所以这里反着写：disabled ⇒ 高亮（强调色实心），enabled ⇒ 透明（可点）。 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/vdesk_accent" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <item>
+        <ripple android:color="@color/vdesk_ripple">
+            <item android:id="@android:id/mask">
+                <shape android:shape="rectangle">
+                    <solid android:color="#FFFFFFFF" />
+                    <corners android:radius="8dp" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+</selector>

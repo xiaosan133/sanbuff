@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 顶栏右侧"设备"标签：胶囊底 + 强调色描边 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/vdesk_accent_soft" />
+    <stroke android:width="1dp" android:color="@color/vdesk_accent" />
+    <corners android:radius="@dimen/radius_pill" />
+</shape>

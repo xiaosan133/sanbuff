@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 命名空间基样式：下面这些 VDesk.Xxx 都写成点号继承，aapt2 会去找隐式父样式 "VDesk"，
+         没有就报 "resource style/VDesk not found" ⇒ 这里显式给一个空基类。 -->
+    <style name="VDesk" />
+
+    <!-- ============ 应用主题 ============
+         深色起点：parent 必须用 **Theme.Material**（dark）而不是 .Light —— 框架控件（EditText /
+         CheckBox / ListView 的默认文字色、分割线、下拉）都按主题的明暗取色，只改 windowBackground
+         是不够的。
+         为什么 NoActionBar：顶栏自绘（右侧要放"设备"chip，塞进 ActionBar 更绕）。 -->
+    <style name="VDeskAppTheme" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:colorPrimary">@color/vdesk_bg</item>
+        <item name="android:colorPrimaryDark">@color/vdesk_bg</item>
+        <item name="android:colorAccent">@color/vdesk_accent</item>
+        <item name="android:colorBackground">@color/vdesk_bg</item>
+        <item name="android:windowBackground">@color/vdesk_bg</item>
+        <item name="android:statusBarColor">@color/vdesk_bg</item>
+        <item name="android:navigationBarColor">@color/vdesk_bg</item>
+        <item name="android:textColorPrimary">@color/vdesk_text</item>
+        <item name="android:textColorSecondary">@color/vdesk_text_dim</item>
+        <item name="android:textColorHint">@color/vdesk_text_faint</item>
+        <item name="android:colorControlHighlight">@color/vdesk_ripple</item>
+        <item name="android:colorControlActivated">@color/vdesk_accent</item>
+        <item name="android:colorControlNormal">@color/vdesk_text_dim</item>
+        <!-- 长按图标的弹出菜单：不给面板底的话，本主题下菜单文字会直接浮在桌面上（实测） -->
+        <item name="android:popupMenuStyle">@style/VDesk.PopupMenu</item>
+    </style>
+
+    <style name="VDesk.PopupMenu" parent="@android:style/Widget.Material.PopupMenu">
+        <item name="android:popupBackground">@drawable/bg_popup</item>
+        <item name="android:listSelector">@drawable/bg_row</item>
+    </style>
+
+    <!-- ============ 文字 ============ -->
+    <style name="VDesk.PageTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/vdesk_text</item>
+    </style>
+
+    <style name="VDesk.SectionNote">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/vdesk_text_faint</item>
+    </style>
+
+    <style name="VDesk.ItemTitle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/vdesk_text</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="VDesk.ItemSub">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/vdesk_text_dim</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- ============ 控件 ============ -->
+    <!-- 顶栏右侧"设备"chip（原来拿 @android:drawable/btn_default 当背景，看着像颗没做完的按钮） -->
+    <style name="VDesk.Chip">
+        <item name="android:background">@drawable/bg_chip</item>
+        <item name="android:textColor">@color/vdesk_accent</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:minHeight">28dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/sp_3</item>
+        <item name="android:paddingRight">@dimen/sp_3</item>
+    </style>
+
+    <!-- Dock 上的一个入口：图标在上、小字在下（框架 Button 的 drawableTop 就够，不用自定义 view） -->
+    <style name="VDesk.DockButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/bg_ripple_pill</item>
+        <item name="android:textColor">@color/vdesk_text_dim</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">@dimen/sp_1</item>
+        <item name="android:drawableTint">@color/vdesk_text_dim</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- 列表行 / 设置行：按压波纹 + 最小高度（行底不铺色 ⇒ 由列表的分割线分隔） -->
+    <style name="VDesk.Row">
+        <item name="android:background">@drawable/bg_row</item>
+        <item name="android:minHeight">@dimen/row_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/sp_4</item>
+        <item name="android:paddingRight">@dimen/sp_4</item>
+        <item name="android:drawablePadding">@dimen/sp_4</item>
+        <item name="android:drawableTint">@color/vdesk_text_dim</item>
+    </style>
+
+    <!-- 主按钮（实心强调色） -->
+    <style name="VDesk.ButtonPrimary">
+        <item name="android:background">@drawable/bg_btn_primary</item>
+        <item name="android:textColor">@color/btn_primary_text</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:minHeight">@dimen/bar_height</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- 次按钮（描边） -->
+    <style name="VDesk.ButtonOutline">
+        <item name="android:background">@drawable/bg_btn_outline</item>
+        <item name="android:textColor">@color/btn_outline_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingLeft">@dimen/sp_4</item>
+        <item name="android:paddingRight">@dimen/sp_4</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!-- 分段控件的一段。注意 AddAppActivity 拿 setEnabled 表示"选中"：
+         enabled=false 的那个才是当前模式 ⇒ 这个样式按 state_enabled 反着写。 -->
+    <style name="VDesk.Segment">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:background">@drawable/bg_segment</item>
+        <item name="android:textColor">@color/segment_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="VDesk.Input">
+        <item name="android:background">@drawable/bg_input</item>
+        <item name="android:textColor">@color/vdesk_text</item>
+        <item name="android:textColorHint">@color/vdesk_text_faint</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingLeft">@dimen/sp_3</item>
+        <item name="android:paddingRight">@dimen/sp_3</item>
+        <item name="android:minHeight">@dimen/bar_height</item>
+    </style>
+
+    <!-- 首屏主题（StubActivity 的窗口）：只给**同色纯色底**，画面全在 SplashView 里。
+         为什么底色不给 launch_bg（那份 layer-list + 转环）：实测它那个转环画出来只有几个 dp、
+         基本看不见（layer-list item 的 width/height 没能把 animated-vector 缩对）；
+         而且窗口背景换不掉 alpha ⇒ 出场没法跟着淡。两份都留在库里（launch_bg / launch_ring /
+         launch_anim），要回退把 windowBackground 换回去即可。
+         statusBarColor 也必须显式给：parent 是 **Light** 主题，默认状态栏是浅色，实测顶上一条灰。 -->
+    <style name="VDeskLaunchTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/vdesk_launch_bg</item>
+        <item name="android:statusBarColor">@color/vdesk_launch_bg</item>
+        <item name="android:navigationBarColor">@color/vdesk_launch_bg</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 主界面：顶栏（标题 + 设备 chip）/ 垂直滚动图标网格 / 底部 Dock。
+     原来这里是 HorizontalScrollView 套多页 GridView（不吸附、无页码、每次 onResume 全量重建），
+     2026-09-29 换成单个垂直 GridView —— 本身就是垂直滚动，多行自然排下去。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/vdesk_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/sp_4"
+        android:paddingRight="@dimen/sp_4">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/VDesk.PageTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_name" />
+
+        <TextView
+            android:id="@+id/deviceBadge"
+            style="@style/VDesk.Chip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <GridView
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="4"
+            android:horizontalSpacing="@dimen/sp_1"
+            android:verticalSpacing="@dimen/sp_2"
+            android:stretchMode="columnWidth"
+            android:paddingLeft="@dimen/sp_2"
+            android:paddingRight="@dimen/sp_2"
+            android:paddingTop="@dimen/sp_2"
+            android:paddingBottom="@dimen/sp_3"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            android:fadeScrollbars="true"
+            android:listSelector="@color/vdesk_transparent" />
+
+        <LinearLayout
+            android:id="@+id/emptyHint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_empty" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_4"
+                android:text="桌面还是空的"
+                android:textColor="@color/vdesk_text"
+                android:textSize="16sp" />
+
+            <TextView
+                style="@style/VDesk.SectionNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_1"
+                android:text="导入手机里的应用，在虚拟设备上运行" />
+
+            <Button
+                android:id="@+id/btnEmptyAdd"
+                style="@style/VDesk.ButtonPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sp_6"
+                android:paddingLeft="@dimen/sp_6"
+                android:paddingRight="@dimen/sp_6"
+                android:text="添加应用" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/stroke_hairline"
+        android:background="@color/vdesk_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dock_height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/sp_2"
+        android:paddingRight="@dimen/sp_2"
+        android:paddingTop="@dimen/sp_1"
+        android:paddingBottom="@dimen/sp_1">
+
+        <Button
+            android:id="@+id/btnAdd"
+            style="@style/VDesk.DockButton"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_tab_add"
+            android:text="添加应用" />
+
+        <Button
+            android:id="@+id/btnMarket"
+            style="@style/VDesk.DockButton"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_tab_market"
+            android:text="市场" />
+
+        <Button
+            android:id="@+id/btnProfile"
+            style="@style/VDesk.DockButton"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_tab_device"
+            android:text="虚拟设备" />
+
+        <Button
+            android:id="@+id/btnSettings"
+            style="@style/VDesk.DockButton"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_tab_settings"
+            android:text="设置" />
+    </LinearLayout>
+</LinearLayout>

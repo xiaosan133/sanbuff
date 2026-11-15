@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <!-- 旋转弧：3/4 圆环，缺口在右上角，旋转时呈 loading 效果 -->
+    <group
+        android:name="ring_group"
+        android:pivotX="50"
+        android:pivotY="50">
+        <path
+            android:pathData="M90,50 A40,40 0 1 0 50,10"
+            android:strokeColor="#FFFFFFFF"
+            android:strokeWidth="6"
+            android:strokeLineCap="round"
+            android:fillColor="#00000000" />
+    </group>
+</vector>

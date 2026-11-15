@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 桌面网格里一个图标的按压波纹（只给波纹、底透明 ⇒ 图标本体不被框住） -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/vdesk_ripple">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFFFF" />
+            <corners android:radius="@dimen/radius_tile" />
+        </shape>
+    </item>
+</ripple>

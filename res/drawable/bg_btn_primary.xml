@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 主按钮。disabled（如"导入所选 (0)"）必须看得出来不能点：实心降成暗色、去掉波纹。 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/vdesk_surface_hi" />
+            <corners android:radius="@dimen/radius_bar" />
+        </shape>
+    </item>
+    <item>
+        <ripple android:color="@color/vdesk_ripple">
+            <item android:id="@android:id/mask">
+                <shape android:shape="rectangle">
+                    <solid android:color="#FFFFFFFF" />
+                    <corners android:radius="@dimen/radius_bar" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/vdesk_accent" />
+                    <corners android:radius="@dimen/radius_bar" />
+                </shape>
+            </item>
+        </ripple>
+    </item>
+</selector>

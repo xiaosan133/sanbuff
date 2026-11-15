@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 可导入应用的一行：勾选 + 图标 + 名字 + 右侧状态（"已导入"）。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="60dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/sp_3"
+    android:paddingRight="@dimen/sp_4"
+    android:background="@drawable/bg_row">
+
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/icon_row"
+        android:layout_height="@dimen/icon_row"
+        android:layout_marginLeft="@dimen/sp_2"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/label"
+        style="@style/VDesk.ItemTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/sp_3" />
+
+    <TextView
+        android:id="@+id/status"
+        style="@style/VDesk.ItemSub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/vdesk_bg">
+
+    <TextView
+        style="@style/VDesk.PageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/sp_4"
+        android:paddingRight="@dimen/sp_4"
+        android:text="应用市场" />
+
+    <EditText
+        android:id="@+id/search"
+        style="@style/VDesk.Input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sp_3"
+        android:layout_marginRight="@dimen/sp_3"
+        android:layout_marginBottom="@dimen/sp_2"
+        android:hint="搜索应用"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:imeOptions="actionSearch" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/vdesk_divider"
+        android:dividerHeight="@dimen/stroke_hairline"
+        android:scrollbars="none"
+        android:listSelector="@color/vdesk_transparent" />
+</LinearLayout>

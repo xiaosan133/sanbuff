@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 尺寸：统一 4dp 网格，避免原来 8/12/16dp 随手写。 -->
+<resources>
+    <dimen name="sp_1">4dp</dimen>
+    <dimen name="sp_2">8dp</dimen>
+    <dimen name="sp_3">12dp</dimen>
+    <dimen name="sp_4">16dp</dimen>
+    <dimen name="sp_6">24dp</dimen>
+
+    <dimen name="radius_card">14dp</dimen>
+    <dimen name="radius_tile">18dp</dimen>
+    <dimen name="radius_bar">12dp</dimen>
+    <dimen name="radius_pill">999dp</dimen>
+
+    <!-- 顶栏 / 行 / Dock -->
+    <dimen name="header_height">56dp</dimen>
+    <dimen name="row_height">56dp</dimen>
+    <dimen name="dock_height">64dp</dimen>
+    <dimen name="bar_height">48dp</dimen>
+
+    <!-- 图标 -->
+    <dimen name="icon_app">52dp</dimen>
+    <dimen name="icon_row">40dp</dimen>
+    <dimen name="icon_dock">24dp</dimen>
+    <dimen name="icon_inline">22dp</dimen>
+
+    <dimen name="stroke_hairline">1dp</dimen>
+</resources>

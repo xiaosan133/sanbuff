@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 市场一行：图标 + 名称/元信息 + 右侧小号描边按钮（原来是每行一颗大 Button，太重）。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="72dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/sp_4"
+    android:paddingRight="@dimen/sp_4"
+    android:paddingTop="@dimen/sp_2"
+    android:paddingBottom="@dimen/sp_2"
+    android:background="@drawable/bg_row">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/icon_row"
+        android:layout_height="@dimen/icon_row"
+        android:contentDescription="@string/app_name" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/sp_3"
+        android:layout_marginRight="@dimen/sp_3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/VDesk.ItemTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/meta"
+            style="@style/VDesk.ItemSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAction"
+        style="@style/VDesk.ButtonOutline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下载" />
+</LinearLayout>

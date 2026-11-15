@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 与 bg_segment 同一套反向约定：disabled = 当前模式 = 白字 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:color="@color/vdesk_text" />
+    <item android:color="@color/vdesk_text_dim" />
+</selector>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/vdesk_bg"
+    android:padding="@dimen/sp_4">
+
+    <TextView
+        android:id="@+id/appName"
+        style="@style/VDesk.PageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_2" />
+
+    <TextView
+        android:id="@+id/hint"
+        style="@style/VDesk.SectionNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_1"
+        android:layout_marginBottom="@dimen/sp_4" />
+
+    <EditText
+        android:id="@+id/alias"
+        style="@style/VDesk.Input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="新名称"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/btnSave"
+        style="@style/VDesk.ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sp_6"
+        android:text="保存" />
+</LinearLayout>

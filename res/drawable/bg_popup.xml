@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 长按图标弹出的菜单面板：深色圆角 + 细描边。
+     不指定的话 PopupMenu 在本主题下画不出底（实测菜单文字直接浮在桌面上）。 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/vdesk_surface_hi" />
+    <stroke android:width="1dp" android:color="@color/vdesk_divider" />
+    <corners android:radius="@dimen/radius_bar" />
+</shape>

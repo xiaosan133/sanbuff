@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设置：自绘标题行（主题已去掉 ActionBar） + 一组可点行（图标 + 标题 + 右侧 chevron）。
+     行内容仍是原来的五个 id（Java 侧只 setText / setOnClickListener，不动）。
+     行底只给波纹、不铺色，行与行之间用 1dp 分隔线隔开。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/vdesk_bg">
+
+    <TextView
+        style="@style/VDesk.PageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/sp_4"
+        android:paddingRight="@dimen/sp_4"
+        android:text="设置" />
+
+    <TextView
+        android:id="@+id/rowSpace"
+        style="@style/VDesk.Row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_row_space"
+        android:drawableRight="@drawable/ic_chevron"
+        android:text="虚拟空间容量"
+        android:textColor="@color/vdesk_text"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/stroke_hairline"
+        android:layout_marginLeft="@dimen/sp_4"
+        android:background="@color/vdesk_divider" />
+
+    <TextView
+        android:id="@+id/rowClean"
+        style="@style/VDesk.Row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_row_clean"
+        android:drawableRight="@drawable/ic_chevron"
+        android:text="清理缓存"
+        android:textColor="@color/vdesk_text"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/stroke_hairline"
+        android:layout_marginLeft="@dimen/sp_4"
+        android:background="@color/vdesk_divider" />
+
+    <TextView
+        android:id="@+id/rowStorage"
+        style="@style/VDesk.Row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_row_storage"
+        android:drawableRight="@drawable/ic_chevron"
+        android:text="存储位置"
+        android:textColor="@color/vdesk_text"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/stroke_hairline"
+        android:layout_marginLeft="@dimen/sp_4"
+        android:background="@color/vdesk_divider" />
+
+    <TextView
+        android:id="@+id/rowPerm"
+        style="@style/VDesk.Row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_row_perm"
+        android:drawableRight="@drawable/ic_chevron"
+        android:text="授权管理"
+        android:textColor="@color/vdesk_text"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/stroke_hairline"
+        android:layout_marginLeft="@dimen/sp_4"
+        android:background="@color/vdesk_divider" />
+
+    <TextView
+        android:id="@+id/rowAbout"
+        style="@style/VDesk.Row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_row_about"
+        android:drawableRight="@drawable/ic_chevron"
+        android:text="关于"
+        android:textColor="@color/vdesk_text"
+        android:textSize="15sp" />
+</LinearLayout>

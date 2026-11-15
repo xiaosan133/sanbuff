@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 深色色板（用户 2026-09-29 定：以主界面为准的深色基调，接启动页的 #161823）。
+     取值原则：底色比启动页再深一档（桌面"退后"、内容"上前"），层级靠三档 surface 拉开。 -->
+<resources>
+    <!-- 层级：窗口底 → 卡片/行 → 按下/选中 -->
+    <color name="vdesk_bg">#FF12141C</color>
+    <color name="vdesk_surface">#FF1C1F2C</color>
+    <color name="vdesk_surface_hi">#FF262B3D</color>
+
+    <!-- 品牌/强调色（与启动页同一族的冷色） -->
+    <color name="vdesk_accent">#FF6C8CFF</color>
+    <color name="vdesk_accent_soft">#336C8CFF</color>
+    <color name="vdesk_accent_press">#556C8CFF</color>
+
+    <!-- 文字 -->
+    <color name="vdesk_text">#FFE9EBF3</color>
+    <color name="vdesk_text_dim">#FF939AB0</color>
+    <color name="vdesk_text_faint">#FF6B7288</color>
+
+    <!-- 分隔线 / 透明 -->
+    <color name="vdesk_divider">#14FFFFFF</color>
+    <color name="vdesk_ripple">#33FFFFFF</color>
+    <color name="vdesk_transparent">#00000000</color>
+
+    <!-- 状态色 -->
+    <color name="vdesk_ok">#FF4CC38A</color>
+
+    <!-- 首屏（跳目标应用的过渡页）背景：与启动页同一档深色 -->
+    <color name="vdesk_launch_bg">#FF161823</color>
+
+    <!-- 启动器图标背景（自适应图标要求前景/背景分开给） -->
+    <color name="launcher_bg">#FF161823</color>
+</resources>

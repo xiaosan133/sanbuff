@@ -1,0 +1,19 @@
+# 构建产物
+classes/
+classes.dex
+unsigned.apk
+vdesk-signed.apk
+vdesk-signed.apk.idsig
+resources.apk
+compiled_res.zip
+gen/
+.classes_built
+
+# 签名密钥（Makefile 会自动用 keytool 生成）
+debug.keystore
+
+# 测试用 APK 下载缓存（TikTok 等，不入库）
+apks/
+
+# 编辑期安全备份 + 调试期日志/现场 dump
+tmp/
