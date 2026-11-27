@@ -1,8 +1,8 @@
-# miniVDesk
+# SanBuff
 
 [English](README.en.md) | 简体中文
 
-miniVDesk 是新一代 Android 应用容器虚拟化引擎。架构上摒弃了传统沙盒中易被检测的 Java proxy、Binder hook、ioctl hook 方案，采用全新自研的系统服务拦截方案，基本实现应用无感知；在不额外增加反检测补丁的情况下，即可有效通过主流检测 App/SDK 针对系统服务 hook 的环境检测热点。路径重定向采用隐蔽性最强的 seccomp-BPF 方案，最大限度规避主流检测手段针对 PLT hook、Inline hook 的检测。
+SanBuff 是新一代 Android 应用容器虚拟化引擎。架构上摒弃了传统沙盒中易被检测的 Java proxy、Binder hook、ioctl hook 方案，采用全新自研的系统服务拦截方案，基本实现应用无感知；在不额外增加反检测补丁的情况下，即可有效通过主流检测 App/SDK 针对系统服务 hook 的环境检测热点。路径重定向采用隐蔽性最强的 seccomp-BPF 方案，最大限度规避主流检测手段针对 PLT hook、Inline hook 的检测。
 
 ## 优势
 

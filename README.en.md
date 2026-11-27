@@ -1,8 +1,8 @@
-# miniVDesk
+# SanBuff
 
 English | [简体中文](README.md)
 
-miniVDesk is a next-generation Android app container / virtualization engine. It abandons the easily-detected approaches of traditional sandboxes — Java proxies, Binder hooks and ioctl hooks — in favor of a self-developed system-service interception design. Apps run essentially unaware of the container, and mainstream detector apps/SDKs that look for system-service hooking can be passed without extra anti-detection patches. Path redirection uses a stealth-oriented seccomp-BPF design, minimizing exposure to common PLT-hook and inline-hook detection.
+SanBuff is a next-generation Android app container / virtualization engine. It abandons the easily-detected approaches of traditional sandboxes — Java proxies, Binder hooks and ioctl hooks — in favor of a self-developed system-service interception design. Apps run essentially unaware of the container, and mainstream detector apps/SDKs that look for system-service hooking can be passed without extra anti-detection patches. Path redirection uses a stealth-oriented seccomp-BPF design, minimizing exposure to common PLT-hook and inline-hook detection.
 
 ## Highlights
 
